@@ -94,13 +94,3 @@ export const getUserProfile = async (req, res) => {
     });
   }
 };
-
-fetch('https://jwtauthenandauthor.onrender.com/api/auth/profile', {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${yourToken}`
-  }
-})
-.then(res => res.json())
-.then(data => console.log(data))
-.catch(err => console.error(err));
