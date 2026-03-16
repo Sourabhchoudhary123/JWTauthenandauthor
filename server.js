@@ -26,6 +26,13 @@ app.get("/collections", async (req, res) => {
   }
 });
 
+app.get('/api/auth/profile', verifyToken, (req, res) => {
+  // Send decoded data back to browser
+  res.json({ decoded: req.user });
+});
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
