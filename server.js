@@ -17,6 +17,15 @@ app.use(express.json());//we have to use this middleware when we post the data u
 
 app.use("/api/auth", authRoutes);
 
+app.get("/collections", async (req, res) => {
+  try {
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    res.json(collections);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

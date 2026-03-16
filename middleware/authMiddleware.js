@@ -15,7 +15,8 @@ const verifyToken = (req, res, next) => {
     try {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        
+        console.log("valid token");
+        console.log("Decoded data is",decoded)
 
         req.user = decoded;
 
@@ -29,5 +30,6 @@ const verifyToken = (req, res, next) => {
 
     }
 
+   console.log("Generated token",token)
 };
 export default verifyToken;
