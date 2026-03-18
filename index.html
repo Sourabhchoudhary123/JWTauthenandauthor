@@ -14,13 +14,13 @@
         async function getUser() {
             const token = localStorage.getItem("token");
 
-            const res = await fetch("http://localhost:5000/api/auth/profile", {
+            const res = await fetch("https://jwtauthenandauthor-4.onrender.com/api/auth/profile", {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             });
 
-            fetch("http://localhost:5000/api/auth/profile", {
+            fetch("https://jwtauthenandauthor-4.onrender.com/api/auth/profile", {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
