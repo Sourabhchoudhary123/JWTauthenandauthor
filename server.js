@@ -4,6 +4,8 @@ import express from "express";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 
+
+
 dotenv.config();
 
 const app = express();
@@ -16,18 +18,6 @@ app.use(express.json());//we have to use this middleware when we post the data u
 
 
 app.use("/api/auth", authRoutes);
-
-app.get("/collections", async (req, res) => {
-  try {
-    const collections = await mongoose.connection.db.listCollections().toArray();
-    res.json(collections);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-
-
 
 const PORT = process.env.PORT || 5000;
 

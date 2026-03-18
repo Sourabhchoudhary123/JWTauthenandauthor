@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 
+
 // REGISTER USER
 export const registerUser = async (req, res ) => {
     try{
@@ -94,3 +95,5 @@ export const getUserProfile = async (req, res) => {
     });
   }
 };
+
+

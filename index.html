@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Auth Test</title>
+</head>
+
+<body>
+
+    <h2>Get User Data</h2>
+    <button onclick="getUser()">Get User</button>
+
+    <script>
+        async function getUser() {
+            const token = localStorage.getItem("token");
+
+            const res = await fetch("http://localhost:5000/api/auth/profile", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            fetch("http://localhost:5000/api/auth/profile", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            const data = await res.json();
+            console.log(data);
+        }
+    </script>
+
+</body>
+
+</html>
